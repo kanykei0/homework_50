@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание 1</title>
+    <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="app"></div>
+
+    <script type="text/babel">
+        const FilmCard = ({name, release, img, country, genre}) => {
+            return(
+                <div className='film'>
+                    <div className="film-inner">
+                        <img src={img} alt={img + 'poster' } className='film-poster' />
+                        <div className="film-info">
+                            <h2 className='film-name'>{name}</h2>
+                            <p className='film-release'><b>Дата выхода: </b>{release}</p>
+                            <p className='film-country'><b>Страна: </b>{country}</p>
+                            <p className='film-genre'><b>Жанр: </b>{genre}</p>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        const films = (
+            <div className='inner-container'>
+                <FilmCard name="Интерстеллар" release="26 октября 2014 года"
+                    img="https://static.hdrezka.ac/i/2022/12/8/s631dd866e67bgl98n40v.jpeg" country="США,
+                    Великобритания, Канада" genre="Фантастика, Драмы, Приключения"/>
+                <FilmCard name="Дюна" release="15 сентября 2021 года"
+                    img="https://static.hdrezka.ac/i/2021/8/18/y31f521cf70e9qp69o39f.jpg" country="США, Канада" genre="Фантастика, Драмы, Приключения"/>
+                <FilmCard name="Иллюзия обмана" release="21 мая 2013 года"
+                    img="https://static.hdrezka.ac/i/2021/1/4/lb3ed8109516bip44m28i.jpeg" country="США, Франция" genre="Триллеры, Криминал, Детективы"/>
+            </div>
+        );
+
+        const container = document.getElementById('app');
+        ReactDOM.createRoot(container).render(films);
+    </script>
+</body>
+
+</html>
