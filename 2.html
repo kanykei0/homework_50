@@ -14,33 +14,158 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style2.css">
 </head>
 
 <body>
     <div id="app"></div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script type="text/babel">
-        import React, { Component } from 'react';
+        const NavigationItem = ({inner}) => {
+            return(
+                <li className="nav-item">
+                    <a className="nav-link text-reset" href="#">{inner}</a>
+                </li>
+            );
+        };
 
-    class MyComponent extends Component {
-    render() {
-        return (
-        <div>
-            <h1>Привет, это классовый компонент</h1>
-            <p>Это абзац текста внутри компонента.</p>
-            <ul>
-            <li>Список элемент 1</li>
-            <li>Список элемент 2</li>
-            <li>Список элемент 3</li>
-            </ul>
-        </div>
+        const ContentCard = ({image, author, date, description}) => {
+            return(
+                <div className="col mb-3">
+                    <div className="card h-100">
+                        <img src={image} className="card-img-top mb-2" alt="content"/>
+                        <div className="card-body p-3">
+                            <span><b>{author}</b> | {date}</span>
+                            <h5 className="fw-bold fs-4 pt-3 lh-base">{description}</h5>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        const ReviewCard = ({review, author, specialization, avatar}) => {
+            return(
+                <div className="col mb-3">
+                    <div className="card h-100">
+                        <div className="card-body pb-5">
+                            <p className="card-text text-secondary pt-3">{review}</p>
+                            <a href="#" className="col d-flex align-items-center mt-4 text-decoration-none">
+                                <img className="rounded-circle user-avatar" src={avatar} alt="user" />
+                                <div className="ms-3">
+                                    <h5 className="m-0 text-success fs-6">{author}</h5>
+                                    <span className="user-employ fw-medium">{specialization}</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        const header = (
+            <header>
+                <nav className="navbar navbar-expand-lg bg-body-tertiary py-3">
+                    <div className="container">
+                        <a className="navbar-brand" href="#">
+                            <img className="nav-logo me-3" src="https://seeklogo.com/images/N/naive-ui-logo-A29B497AA3-seeklogo.com.png"
+                                alt="Product" />Product
+                        </a>
+                        <button className="navbar-toggler" type="button" data-bs-toggle="collapse"
+                            data-bs-target="#navbarNav">
+                            <span className="navbar-toggler-icon"></span>
+                        </button>
+                        <div className="collapse navbar-collapse" id="navbarNav">
+                            <ul className="navbar-nav ms-auto">
+                                <NavigationItem inner='Product' />
+                                <NavigationItem inner='Customers' />
+                                <NavigationItem inner='Pricing' />
+                                <NavigationItem inner='Resources' />
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+            </header>
         );
-    }
-    }
 
-    export default MyComponent;
+        const main = (
+            <div className="container pb-5">
+                <div className="row row-cols-1 row-cols-md-2 d-md-flex">
+                    <div className="col ps-md-5 mt-xl-5 pt-xl-5">
+                        <h1 className="fw-bold mt-5 pt-xl-2">Work at the speed of thought</h1>
+                        <p className="fs-main-desc mb-4 mb-md-5 mt-md-4 pt-2 pb-lg-2">Tools, tutorials, design and innovation experts, all in one place!<br/> The most intuitive way to imagine your next user experience.</p>
+                        <a href="#" className="btn btn-success p-main-btn fw-bold">Get started</a>
+                    </div>
+                    <div className="col"><img src="https://png.pngtree.com/png-clipart/20220110/original/pngtree-hard-team-decorative-illustration-png-image_7071109.png" alt="main-pic" className="w-100" /></div>
+                </div>
+            </div>
+        );
 
+        const content = (
+            <div className="container mt-5">
+                <h2 className="fw-bold mb-3">Contents Strategies</h2>
+                <p className="pb-3 fw-medium">We focus on ergonomics and meeting you where you work. It's only a keystroke away.</p>
+                <div className="row row-cols-1 row-cols-sm-2 row-cols-xl-4">
+                    <ContentCard
+                        image='https://yk24.ru/wp-content/uploads/2023/10/MWiiiauKTKzgztpju1s1nwSZvVn8Z3Nudfhyd9wr-300x200.jpg'
+                        author='Wahid Ari' date='03 March 2019'
+                        description='Increasing Prosperity With Positive Thinking' />
+                    <ContentCard
+                        image='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT1fqRrgIrKB-xXcj-NsK8XFmcerelsa15JZA&usqp=CAU'
+                        author='Wahid Ari' date='03 March 2019'
+                        description='Motivation Is The First Step To Success' />
+                    <ContentCard
+                        image='https://cdn.ca.emap.com/wp-content/uploads/sites/8/2023/08/generic-waterworks-300x200.jpg'
+                        author='Wahid Ari' date='03 March 2019'
+                        description='Success Steps For Your Personal' />
+                    <ContentCard
+                        image='https://dinofarm.ru/wp-content/uploads/2022/04/dinofarm-triceratops-cover-300x200.jpg'
+                        author='Wahid Ari' date='03 March 2019'
+                        description='Success Steps For Your Personal Or Business' />
+                </div>
+            </div>
+        );  
+
+        const clientOpinion = (
+            <div className="container pt-5">
+                <h2 className="text-center fw-bold mt-4 mb-0 lh-lg">What Clients Say</h2>
+                <p className="clients-block-desc text-center fw-medium">Problems trying to resolve the conflict between the two major realms of Classical physics: Newtonian mechanics </p>
+                <div className="row row-cols-1 row-cols-sm-2 row-cols-xl-4 mt-5 pt-2">
+                    <ReviewCard review='Product helps you see how many more days you need to work to reach your financial goal.'
+                        author='Wahid Ari' specialization='Designer'
+                        avatar='https://cdn.icon-icons.com/icons2/1736/PNG/512/4043248-avatar-female-portrait-woman_113285.png'
+                        />
+                    <ReviewCard review='Product helps you see how many more days you need to work to reach your financial goal.'
+                        author='Wahid Ari' specialization='Designer'
+                        avatar='https://cdn.icon-icons.com/icons2/1736/PNG/512/4043279-afro-avatar-male-man_113244.png'
+                        />
+                    <ReviewCard review='Product helps you see how many more days you need to work to reach your financial goal.'
+                        author='Wahid Ari' specialization='Art director'
+                        avatar='https://cdn.icon-icons.com/icons2/1736/PNG/512/4043251-avatar-female-girl-woman_113291.png'
+                        />
+                    <ReviewCard review='Product helps you see how many more days you need to work to reach your financial goal.'
+                        author='John Doe' specialization='Designer'
+                        avatar='https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-Vector-PNG-Clipart.png' />
+                </div>
+            </div>
+        );
+
+        const footer = (
+            <footer className="bg-success bg-opacity-25 py-4 mt-5">
+                <p className="text-center m-0">Made With Love By Figmaland All Right Reserved
+                </p>
+            </footer>
+        );
+
+        const container = document.getElementById('app');
+        ReactDOM.createRoot(container).render(
+            <div>
+                {header}
+                {main}
+                {content}
+                {clientOpinion}
+                {footer}
+            </div>
+        );
     </script>
 </body>
 

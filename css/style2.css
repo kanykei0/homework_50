@@ -1,0 +1,37 @@
+body,
+a {
+    color: #22343D;
+    font-family: 'Poppins',
+        sans-serif;
+}
+
+.fs-main-desc {
+    font-size: 18px;
+}
+
+h2 {
+    font-size: 34px;
+}
+
+.p-main-btn {
+    padding: 15px 68px;
+}
+
+.clients-block-desc {
+    max-width: 537px;
+    margin: 0 auto;
+}
+
+.user-employ {
+    font-size: 14px;
+}
+
+.nav-logo {
+    width: 50px;
+}
+
+.user-avatar {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
